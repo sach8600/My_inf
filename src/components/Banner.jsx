@@ -92,7 +92,7 @@ export default function Banner() {
           <h4 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Connect with Me</h4>
           <div className="flex space-x-4">
             <a
-              href="https://www.instagram.com/sachinsurpe"
+              href="https://www.instagram.com/_surpe_sachin_8600?igsh=NDRkODFuOWNjNXls"
               target="_blank"
               rel="noopener noreferrer"
               className="text-3xl text-pink-500 hover:text-pink-600 transition-colors"
@@ -100,7 +100,7 @@ export default function Banner() {
               <FaInstagram />
             </a>
             <a
-              href="https://www.linkedin.com/in/sachinsurpe"
+              href="https://www.linkedin.com/in/sachin-surpe-277905208?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               target="_blank"
               rel="noopener noreferrer"
               className="text-3xl text-blue-600 hover:text-blue-700 transition-colors"

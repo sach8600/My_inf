@@ -81,7 +81,7 @@ export default function ContactMe() {
           </a>
           {/* Instagram */}
           <a
-            href="https://instagram.com/_surpe_sachin_8600"
+            href="https://www.instagram.com/_surpe_sachin_8600?igsh=NDRkODFuOWNjNXls"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center text-blue-500 hover:text-blue-600 transition"
@@ -91,7 +91,7 @@ export default function ContactMe() {
           </a>
           {/* LinkedIn */}
           <a
-            href="https://www.linkedin.com/in/sachin-surpe-277905208"
+            href="https://www.linkedin.com/in/sachin-surpe-277905208?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center text-blue-500 hover:text-blue-600 transition"
