@@ -1,42 +1,71 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export default function Skills() {
-    const [skills] = useState([
+// Import project images from assets folder
+import projectImage1 from '../assets/img1.png';
+import projectImage2 from '../assets/img2.png'; 
+import projectImage3 from '../assets/img3.png';
+import projectImage4 from '../assets/img4.png';
+import projectImage5 from '../assets/img5.png'; 
+import projectImage6 from '../assets/img6.png';
+import projectImage7 from '../assets/img7.png';
+import projectImage8 from '../assets/img8.png'; 
+import projectImage9 from '../assets/img9.png';
+export default function Projects() {
+    const projects = [
         {
             id: '1',
-            title: 'Full Java',
-            description: 'Java is a versatile, object-oriented programming language known for its portability, security, and scalability. It’s widely used for building enterprise applications, Android apps, and large-scale systems, supporting robust multithreading and memory management.',
-            iconClass: 'fa-brands fa-java',
-            buttonText: 'Check',
+            title: 'Digital Map Work Tracking System',
+            description: 'A system to track work activities based on location, providing real-time status updates and geolocation-based work management for teams.',
+            images: [projectImage1, projectImage2, projectImage3], 
+            projectLink: 'https://coeosmanabad.ac.in/digitalmap',
         },
         {
             id: '2',
-            title: 'React.Js',
-            description: 'React.js is a JavaScript library for building user interfaces. It uses a component-based architecture and virtual DOM, enabling efficient updates and reusability, ideal for creating dynamic and responsive web applications.',
-            iconClass: 'fa-brands fa-react',
-            buttonText: 'Check',
+            title: 'Granth Samrudhi',
+            description: 'A web applicatin we build for reading mythological books and hindu dhrama granths technology used react js, html and css component, java spring boot and my sql',
+            images: [projectImage4, projectImage5, projectImage6], 
+            projectLink: '#GrantSamrudhi',
         },
         {
             id: '3',
-            title: 'MySQL',
-            description: 'MySQL is a widely-used, open-source relational database management system (RDBMS). It supports SQL for querying and managing data, making it ideal for web applications, data storage, and handling large datasets efficiently.',
-            iconClass: 'fa-solid fa-database',
-            buttonText: 'Check',
+            title: 'Portfolio Website',
+            description: 'A responsive portfolio website that showcases projects, skills, and personal information. It includes sections like About Me, Projects, Skills, Contact Form, and Blog.',
+            images: [projectImage7, projectImage8, projectImage9], // Use appropriate images
+            projectLink: '#portfolio',
         },
-    ]);
+    ];
 
     return (
-        <div className='main-container py-14'>
-            <h1 className='text-3xl md:text-5xl font-bold text-center underline'>My Skills</h1>
-            <div className='skills-container flex flex-col md:flex-row md:space-x-5 px-5 md:px-10 mt-12 space-y-5 md:space-y-0'>
-                {skills.map((skill) => (
-                    <div key={skill.id} className='cursor-pointer hover:bg-red-500 space-y-3 bg-slate-200 p-5 text-center shadow-lg rounded-xl flex-1'>
-                        <i className={`text-4xl md:text-5xl ${skill.iconClass}`}></i>
-                        <h1 className='text-2xl md:text-4xl'>{skill.title}</h1>
-                        <p className='text-sm md:text-base'>
-                            {skill.description}
-                        </p>
-                        <button className='px-3 py-2 bg-orange-500 shadow rounded-full'>{skill.buttonText}</button>
+        <div className="py-14">
+            <h1 className="text-3xl md:text-5xl font-bold text-center text-blue-50 mb-12">Projects</h1>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-5 md:px-10">
+                {projects.map((project) => (
+                    <div key={project.id} className="project-card bg-white dark:bg-gray-800 p-5 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                        <div className="flex flex-col items-center space-y-4">
+                            {/* Project Images with Animation */}
+                            <div className="flex space-x-2 overflow-hidden">
+                                {project.images.map((image, index) => (
+                                    <img
+                                        key={index}
+                                        src={image}
+                                        alt={project.title}
+                                        className="project-image w-24 h-24 object-cover rounded-lg transition-all duration-500 transform hover:translate-x-4"
+                                    />
+                                ))}
+                            </div>
+                            {/* Project Title and Description */}
+                            <h2 className="text-2xl font-semibold text-gray-800 dark:text-white">{project.title}</h2>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">{project.description}</p>
+                            {/* Project Link */}
+                            <a
+                                href={project.projectLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-4 py-2 bg-blue-500 text-white rounded-full shadow-lg transition hover:bg-blue-600"
+                            >
+                                View Project
+                            </a>
+                        </div>
                     </div>
                 ))}
             </div>

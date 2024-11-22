@@ -1,39 +1,96 @@
-import React, { useState } from 'react';
-import bannerImage from "../assets/my1.jpg";
+import React from "react";
+import { FaBriefcase, FaUniversity, FaFileDownload, FaEye } from "react-icons/fa";
+import programmingImage from "../assets/programming-image.jpg"; // Replace with actual image path
+import pdfFile from "../assets/Sachin_Surpe_Resume.pdf";
 
-export default function About() {
-  const [data, setData] = useState({
-    Image: bannerImage,
-    title: "Java Developer and React Developer",
-    desc1: `I am a skilled full-stack developer with expertise in Java and React. I build dynamic and responsive web applications, combining strong backend logic with modern frontend design to deliver comprehensive solutions.`,
-    desc2: "An accomplished full-stack developer specializing in Java and React. With a strong command of backend development, I craft robust and scalable applications, while my frontend expertise ensures seamless, user-friendly interfaces. My ability to integrate complex logic with modern design principles allows me to deliver comprehensive and innovative solutions. I am passionate about staying updated with the latest technologies, ensuring my projects are both cutting-edge and highly functional.",
-    actionButton: {
-      title: "Read More...",
-      link: "/readmore"
-    },
-  });
-
+export default function AboutMe() {
   return (
-    <>
-      <div className='main-container bg-gray-100 py-16 px-4 md:px-8 lg:px-16'>
-        <h1 className='text-4xl md:text-5xl pb-8 font-bold underline text-center'>About Me</h1>
-        <div className='flex flex-col lg:flex-row items-center'>
-          {/* Image Section */}
-          <div className='w-full lg:w-1/2 flex justify-center mb-8 lg:mb-0'>
-            <img className='w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full shadow-lg' src={data.Image} alt="Sachin Surape" />
-          </div>
+    <div className="my-14 bg-white dark:bg-gray-900 px-6 py-10">
+      <h1 className="text-5xl font-bold text-center text-black dark:text-white mb-10">
+        About Me
+      </h1>
 
-          {/* Text Section */}
-          <div className='w-full lg:w-1/2 flex justify-center'>
-            <div className='space-y-4 md:space-y-6 lg:space-y-8 text-center lg:text-left'>
-              <h1 className='text-3xl md:text-4xl lg:text-5xl font-semibold'>{data.title}</h1>
-              <p className='text-base md:text-lg lg:text-xl'>{data.desc1}</p>
-              <p className='text-base md:text-lg lg:text-xl'>{data.desc2}</p>
-              <a href={data.actionButton.link} className='inline-block bg-orange-500 py-2 px-4 text-lg md:text-xl lg:text-2xl text-white rounded-full shadow-lg hover:bg-orange-600 transition'>{data.actionButton.title}</a>
-            </div>
+      {/* Self Summary and Image */}
+      <div className="flex flex-col lg:flex-row justify-between items-center mb-16">
+        <div className="lg:w-1/2 text-center lg:text-left space-y-4">
+          <h2 className="text-3xl font-semibold text-black dark:text-white">Hi, I'm Sachin!</h2>
+          <p className="text-lg text-black dark:text-gray-100">
+            I am a recent B.Tech graduate in computer science and Engineering from
+            TPCT’s College of Engineering, Dharashiv. I have a solid
+            foundation in both front-end and back-end development,
+            making me well-suited for Full Stack roles.
+            I completed a comprehensive Java certification course at Yess
+            Infotech, Pune, where I enhanced my skills in Java and Spring
+            Boot. On the front end, I am proficient in HTML, CSS, JavaScript,
+            and ReactJS, while on the back end, I specialize in Java, Spring
+            Boot, and MySQL.
+          </p>
+        </div>
+        <div className="lg:w-1/2 w-full flex justify-center">
+          <img
+            src={programmingImage}
+            alt="A person programming on a laptop"
+            className="w-1/2 md:w-3/5 lg:w-2/3 xl:w-1/2 h-auto rounded-lg shadow-lg object-contain"
+          />
+        </div>
+      </div>
+
+      {/* Experience and Education Section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        {/* Experience Card */}
+        <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md space-y-4 transition-transform hover:scale-105 hover:shadow-xl hover:bg-orange-100 dark:hover:bg-orange-800">
+          <div className="flex items-center space-x-3">
+            <FaBriefcase className="text-3xl text-orange-500" />
+            <h3 className="text-2xl font-semibold text-black dark:text-white">Experience</h3>
+          </div>
+          <p className="text-black dark:text-gray-100">
+            I Have successfully completed internship of 6 months as a fullstack
+            developer with Yess Infotech, Pune
+          </p>
+        </div>
+
+        {/* Education Card */}
+        <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md space-y-4 transition-transform hover:scale-105 hover:shadow-xl hover:bg-green-100 dark:hover:bg-green-800">
+          <div className="flex items-center space-x-3">
+            <FaUniversity className="text-3xl text-green-500" />
+            <h3 className="text-2xl font-semibold text-black dark:text-white">Education</h3>
+          </div>
+          <p className="text-black dark:text-gray-100">
+            Jan 2021 - July 2019
+            Tpct's COE. Dharashiv
+            Computer Science and Engineering
+          </p>
+        </div>
+      </div>
+
+      {/* Resume Section */}
+      <div className="flex justify-center mb-16">
+        <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md text-center space-y-4 transition-transform hover:scale-105 hover:shadow-xl hover:bg-blue-100 dark:hover:bg-blue-800">
+          <h3 className="text-2xl font-semibold text-black dark:text-white">My Resume</h3>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* Download Resume Button */}
+            <a
+              href={pdfFile}
+              className="inline-flex items-center text-lg text-white bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-full"
+              download
+            >
+              <FaFileDownload className="mr-2" />
+              Download Resume
+            </a>
+
+            {/* View Resume Button */}
+            <a
+              href={pdfFile}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-lg text-white bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-full"
+            >
+              <FaEye className="mr-2" />
+              View Resume
+            </a>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

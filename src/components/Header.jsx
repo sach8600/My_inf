@@ -1,78 +1,85 @@
 import { useState } from "react";
+import { Link } from 'react-scroll';
 
-const Header = () => {
-    const [brandName, setBrandname] = useState("Sachin Surape");
-    const [menuLinks, setMenuLinks] = useState([
-        { title: "Home", link: "/home", id: 1 },
-        { title: "About", link: "/about", id: 2 },
-        { title: "Skills", link: "/skills", id: 3 },
-        { title: "Portfolio", link: "/portfolio", id: 4 },
-        { title: "Contact", link: "/contact", id: 5 },
+const Header = ({ theme, toggleTheme }) => {
+    const [brandName, setBrandname] = useState("Sachin Surpe");
+    const [menuLinks] = useState([
+        { title: "Home", link: "banner", id: 1 },
+        { title: "About", link: "about", id: 2 },
+        { title: "Projects", link: "skills", id: 3 },
+        { title: "Tech Stack", link: "expertise", id: 4 },
+        { title: "Contact", link: "Contactme", id: 5 },
     ]);
 
-    const [actionButton, setActionButton] = useState({
+    const [actionButton] = useState({
         title: "Hire Me",
-        link: "/hire-me",
+        link: "footer",
     });
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
         <>
-            <div className="h-20 border-b flex justify-between items-center px-4 md:px-16 bg-gray-100">
+            <div className="h-20 border-b flex justify-between items-center px-4 md:px-16 bg-gray-100 dark:bg-gray-800 relative">
                 {/* Brand Name */}
                 <div>
-                    <h1 className="text-xl md:text-2xl font-bold">{brandName}</h1>
+                    <h1 className="text-xl md:text-2xl font-bold dark:text-white">{brandName}</h1>
                 </div>
 
-                {/* Menu Links */}
+                {/* Menu Links for Desktop */}
                 <div className="hidden md:flex space-x-6">
                     {menuLinks.map((link) => (
-                        <a key={link.id} href={link.link} className="hover:text-orange-600">
+                        <Link
+                            key={link.id}
+                            to={link.link}
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                            className="hover:text-orange-600 cursor-pointer dark:text-white"
+                        >
                             {link.title}
-                        </a>
+                        </Link>
                     ))}
                 </div>
 
-                {/* Action Button */}
-                <div className="hidden md:block">
-                    <a
-                        href={actionButton.link}
-                        className="px-4 py-2 bg-orange-500 shadow rounded-full text-sm md:text-lg"
-                    >
-                        {actionButton.title}
-                    </a>
-                </div>
+                {/* Dark Mode Toggle Button */}
+                <button
+                    onClick={toggleTheme}
+                    className="bg-gray-200 dark:bg-gray-600 text-black dark:text-white px-4 py-2 rounded-full"
+                >
+                    {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+                </button>
 
                 {/* Mobile Menu Button */}
                 <div className="md:hidden">
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="text-2xl focus:outline-none"
+                        className="text-2xl dark:text-white focus:outline-none"
                     >
                         {isMenuOpen ? "✖" : "☰"}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
-            {isMenuOpen && (
-                <div className="md:hidden bg-gray-100">
-                    <div className="flex flex-col space-y-4 py-4">
-                        {menuLinks.map((link) => (
-                            <a key={link.id} href={link.link} className="hover:text-orange-600 px-4">
-                                {link.title}
-                            </a>
-                        ))}
-                        <a
-                            href={actionButton.link}
-                            className="px-4 py-2 bg-orange-500 shadow rounded-full text-center"
-                        >
-                            {actionButton.title}
-                        </a>
-                    </div>
-                </div>
-            )}
+            {/* Mobile Menu - Conditional Render */}
+            <div
+                className={`md:hidden absolute top-20 left-0 right-0 bg-gray-100 dark:bg-gray-800 p-6 transition-all duration-300 ease-in-out ${isMenuOpen ? 'block' : 'hidden'} z-50`}
+            >
+                {menuLinks.map((link) => (
+                    <Link
+                        key={link.id}
+                        to={link.link}
+                        spy={true}
+                        smooth={true}
+                        offset={-70}
+                        duration={500}
+                        className="block py-2 px-4 text-xl text-center text-black dark:text-white hover:bg-orange-600 hover:text-white"
+                    >
+                        {link.title}
+                    </Link>
+                ))}
+            </div>
         </>
     );
 };
