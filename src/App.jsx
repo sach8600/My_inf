@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Expertise from './components/Expertise';
 import Footer from './components/Footer';
 import ContactMe from './components/Contactme';
+import Certificates from './components/Certificate';
 
 function App() {
   // Theme State: 'light' or 'dark'
@@ -33,12 +34,17 @@ function App() {
       <div id="expertise">
         <Expertise />
       </div>
+      <div id="certificate">
+        <Certificates />
+      </div>
       <div id="Contactme">
         <ContactMe />
       </div>
+      
       <div id="footer">
         <Footer />
       </div>
+     
      
     </div>
   );
