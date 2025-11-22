@@ -3,6 +3,7 @@ import { FaBriefcase, FaUniversity, FaFileDownload, FaEye } from "react-icons/fa
 import programmingImage from "../assets/programming-image.jpg"; // Replace with actual image path
 import pdfFile from "../assets/Sachin_Surpe_Resume.pdf";
 
+
 export default function AboutMe() {
   return (
     <div className="my-14 bg-white dark:bg-gray-900 px-6 py-10">
@@ -56,7 +57,7 @@ export default function AboutMe() {
             <h3 className="text-2xl font-semibold text-black dark:text-white">Education</h3>
           </div>
           <p className="text-black dark:text-gray-100">
-            Jan 2021 - July 2019
+            Jan 2020 - July 2004
             Tpct's COE. Dharashiv
             Computer Science and Engineering
           </p>
